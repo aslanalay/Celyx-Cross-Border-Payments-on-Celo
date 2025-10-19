@@ -1,34 +1,83 @@
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.28;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
 
-// Uncomment this line to use console.log
-// import "hardhat/console.sol";
+/**
+ * @title CelyxRemittance
+ * @dev A simple remittance contract for low-cost stablecoin transfers on Celo.
+ */
 
-contract Lock {
-    uint public unlockTime;
-    address payable public owner;
+interface IERC20 {
+    function transfer(address to, uint256 amount) external returns (bool);
+    function transferFrom(address from, address to, uint256 amount) external returns (bool);
+    function balanceOf(address account) external view returns (uint256);
+}
 
-    event Withdrawal(uint amount, uint when);
+contract CelyxRemittance {
+    address public owner;
+    IERC20 public stablecoin; // e.g. cUSD token on Celo
 
-    constructor(uint _unlockTime) payable {
-        require(
-            block.timestamp < _unlockTime,
-            "Unlock time should be in the future"
-        );
+    uint256 public txCount = 0;
 
-        unlockTime = _unlockTime;
-        owner = payable(msg.sender);
+    struct Transfer {
+        address sender;
+        address receiver;
+        uint256 amount;
+        uint256 timestamp;
+        string note;
     }
 
-    function withdraw() public {
-        // Uncomment this line, and the import of "hardhat/console.sol", to print a log in your terminal
-        // console.log("Unlock time is %o and block timestamp is %o", unlockTime, block.timestamp);
+    mapping(uint256 => Transfer) public transfers;
 
-        require(block.timestamp >= unlockTime, "You can't withdraw yet");
-        require(msg.sender == owner, "You aren't the owner");
+    event Sent(address indexed from, address indexed to, uint256 amount, string note);
+    event Withdrawn(address indexed by, uint256 amount);
+    event OwnershipTransferred(address indexed oldOwner, address indexed newOwner);
 
-        emit Withdrawal(address(this).balance, block.timestamp);
+    constructor(address _stablecoin) {
+        owner = msg.sender;
+        stablecoin = IERC20(_stablecoin);
+    }
 
-        owner.transfer(address(this).balance);
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Only owner");
+        _;
+    }
+
+    /**
+     * @dev Send stablecoins to another user
+     */
+    function sendRemittance(address receiver, uint256 amount, string calldata note) external {
+        require(receiver != address(0), "Invalid receiver");
+        require(stablecoin.balanceOf(msg.sender) >= amount, "Insufficient balance");
+
+        bool success = stablecoin.transferFrom(msg.sender, receiver, amount);
+        require(success, "Transfer failed");
+
+        txCount++;
+        transfers[txCount] = Transfer(msg.sender, receiver, amount, block.timestamp, note);
+
+        emit Sent(msg.sender, receiver, amount, note);
+    }
+
+    /**
+     * @dev Owner can change stablecoin contract (e.g., from cUSD to cEUR)
+     */
+    function setStablecoin(address _newToken) external onlyOwner {
+        stablecoin = IERC20(_newToken);
+    }
+
+    /**
+     * @dev Transfer ownership to a new address
+     */
+    function transferOwnership(address newOwner) external onlyOwner {
+        require(newOwner != address(0), "Invalid owner");
+        emit OwnershipTransferred(owner, newOwner);
+        owner = newOwner;
+    }
+
+    /**
+     * @dev View details of a transaction by ID
+     */
+    function getTransfer(uint256 id) external view returns (Transfer memory) {
+        return transfers[id];
     }
 }
