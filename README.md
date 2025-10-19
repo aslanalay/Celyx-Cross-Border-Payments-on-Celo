@@ -1,86 +1,26 @@
-# Celo Composer CLI
+Celyx, Celo blok zinciri üzerine kurulmuş merkezi olmayan bir para transferi platformudur ve stabilcoinlerle desteklenen anında, düşük maliyetli ve sınırsız para transferleri sağlar.
+Celyx ile kullanıcılar, aracılar veya gizli ücretler olmadan saniyeler içinde küresel olarak ödeme gönderebilir ve alabilir. Platform, Celo'nun mobil öncelikli DeFi altyapısını kullanarak, özellikle banka hesabı olmayan ve banka hizmetlerinden yeterince yararlanamayan topluluklar için hızlı, şeffaf ve kapsayıcı finansal erişim sağlar.
 
-A powerful CLI tool for generating customizable Celo blockchain starter kits with modern monorepo architecture.
+💡 Temel Özellikler
 
-## Features
+💸 Anında Transferler: Stabilcoinleri (cUSD, cEUR) saniyeler içinde sınırların ötesine gönderin.
+🌐 Düşük Ücretler: Celo'nun hafif, düşük maliyetli blok zinciri üzerine kurulmuştur.
+📱 Mobil Öncelikli: Akıllı telefonlarda erişilebilirlik için optimize edilmiştir.
+🔒 Güvenli ve Şeffaf: Denetlenmiş akıllı sözleşmeler ve zincir üzerinde doğrulama ile desteklenir.
+💬 Kullanıcı Dostu: Hem kripto para kullanıcıları hem de yeni kullanıcılar için tasarlanmış basit kullanıcı arayüzü.
+🧱 Teknoloji Yığını
 
-- 🚀 **Modern Stack**: Next.js 14, TypeScript, Tailwind CSS, shadcn/ui
-- 📦 **Monorepo Ready**: Turborepo with PNPM workspaces
-- 🎨 **Beautiful UI**: Pre-configured shadcn/ui components
-- 🔧 **Developer Experience**: Interactive prompts and clear feedback
-- 🌍 **Celo Optimized**: Ready for Celo blockchain development
+Blockchain: Celo
 
-## Installation
+Akıllı Sözleşmeler: Solidity + Hardhat
+Front: React / Next.js
+Cüzdan Entegrasyonu: Metamask Cüzdan, Valora, MetaMask
 
-```bash
-# Install dependencies
-pnpm install
 
-# Build the CLI
-pnpm build
+🌎 Vizyon
 
-# Link for global usage (optional)
-npm link
-```
+Sınırsız para transferini basit, uygun maliyetli ve kapsayıcı hale getirmek — Celo tarafından desteklenen ve herkesin, her yerden erişebileceği bir sistem.
+Translated with DeepL.com (free version)
 
-## Usage
 
-### Create a new Celo project
-
-```bash
-# Interactive mode
-pnpm dev create
-
-# With project name
-pnpm dev create my-celo-app
-
-# With options
-pnpm dev create my-celo-app --description "My awesome Celo app" --skip-install
-```
-
-### Command Options
-
-- `--description <description>` - Project description
-- `--skip-install` - Skip package installation
-
-## Generated Project Structure
-
-```
-my-celo-app/
-├── apps/
-│   └── web/                 # Next.js application
-├── packages/
-│   ├── ui/                  # shadcn/ui components
-│   └── utils/               # Shared utilities
-├── package.json             # Root package.json
-├── pnpm-workspace.yaml      # PNPM workspace config
-├── turbo.json              # Turborepo configuration
-└── tsconfig.json           # TypeScript configuration
-```
-
-## Development
-
-```bash
-# Start development
-pnpm dev
-
-# Build
-pnpm build
-
-# Lint
-pnpm lint
-
-# Run tests
-pnpm test
-```
-
-## Tech Stack
-
-- **CLI Framework**: Commander.js + Inquirer.js
-- **Template Engine**: Plop.js
-- **Language**: TypeScript
-- **Generated Projects**: Next.js 14 + Turborepo + shadcn/ui
-
-## License
-
-MIT
+<img width="684" height="205" alt="image" src="https://github.com/user-attachments/assets/e01eec32-7c5e-4eaa-b857-5e398063304e" />
