@@ -1,26 +1,32 @@
-Celyx, Celo blok zinciri üzerine kurulmuş merkezi olmayan bir para transferi platformudur ve stabilcoinlerle desteklenen anında, düşük maliyetli ve sınırsız para transferleri sağlar.
-Celyx ile kullanıcılar, aracılar veya gizli ücretler olmadan saniyeler içinde küresel olarak ödeme gönderebilir ve alabilir. Platform, Celo'nun mobil öncelikli DeFi altyapısını kullanarak, özellikle banka hesabı olmayan ve banka hizmetlerinden yeterince yararlanamayan topluluklar için hızlı, şeffaf ve kapsayıcı finansal erişim sağlar.
+# 🌍 Celyx — Global, Instant, Low-Cost Money Transfers on Celo
 
-💡 Temel Özellikler
+**Celyx** is a decentralized money transfer platform built on the **Celo blockchain**, enabling instant, low-cost, and borderless transactions powered by stablecoins.
 
-💸 Anında Transferler: Stabilcoinleri (cUSD, cEUR) saniyeler içinde sınırların ötesine gönderin.
-🌐 Düşük Ücretler: Celo'nun hafif, düşük maliyetli blok zinciri üzerine kurulmuştur.
-📱 Mobil Öncelikli: Akıllı telefonlarda erişilebilirlik için optimize edilmiştir.
-🔒 Güvenli ve Şeffaf: Denetlenmiş akıllı sözleşmeler ve zincir üzerinde doğrulama ile desteklenir.
-💬 Kullanıcı Dostu: Hem kripto para kullanıcıları hem de yeni kullanıcılar için tasarlanmış basit kullanıcı arayüzü.
-🧱 Teknoloji Yığını
+With Celyx, users can send and receive global payments in seconds — without intermediaries or hidden fees. By leveraging Celo’s mobile-first DeFi infrastructure, Celyx provides fast, transparent, and inclusive financial access, especially for unbanked and underbanked communities around the world.
 
-Blockchain: Celo
+---
 
-Akıllı Sözleşmeler: Solidity + Hardhat
-Front: React / Next.js
-Cüzdan Entegrasyonu: Metamask Cüzdan, Valora, MetaMask
+## 💡 Key Features
 
+- 💸 **Instant Transfers**: Send stablecoins like `cUSD` and `cEUR` across borders within seconds.
+- 🌐 **Low Fees**: Built on Celo’s lightweight and cost-efficient blockchain.
+- 📱 **Mobile-First**: Optimized for accessibility on smartphones.
+- 🔒 **Secure & Transparent**: Powered by audited smart contracts and on-chain verification.
+- 💬 **User-Friendly Interface**: Designed for both crypto-native users and newcomers.
 
-🌎 Vizyon
+---
 
-Sınırsız para transferini basit, uygun maliyetli ve kapsayıcı hale getirmek — Celo tarafından desteklenen ve herkesin, her yerden erişebileceği bir sistem.
-Translated with DeepL.com (free version)
+## 🧱 Tech Stack
 
+- **Blockchain**: Celo
+- **Smart Contracts**: Solidity + Hardhat
+- **Frontend**: React / Next.js
+- **Wallet Integrations**:
+  - MetaMask (Browser & Mobile)
+---
+
+## 🌎 Vision
+
+To make global money transfers **simple**, **affordable**, and **inclusive** — powered by Celo and accessible to **anyone, anywhere**.
 
 <img width="684" height="205" alt="image" src="https://github.com/user-attachments/assets/e01eec32-7c5e-4eaa-b857-5e398063304e" />
